@@ -16,7 +16,7 @@ def tokenize_review(x_tr, x_val, max_len_text):
     x_val = pad_sequences(x_val, maxlen=max_len_text, padding='post')
 
     x_voc_size = len(x_tokenizer.word_index) + 1
-    joblib.dump(x_tokenizer, 'models/x_tokenizer.pkl')
+    joblib.dump(x_tokenizer, 'features/x_tokenizer.pkl')
     return x_tr, x_val, x_voc_size
 
 
@@ -33,7 +33,7 @@ def tokenize_comment(y_tr, y_val, max_len_summary):
     y_val = pad_sequences(y_val, maxlen=max_len_summary, padding='post')
 
     y_voc_size = len(y_tokenizer.word_index) + 1
-    joblib.dump(y_tokenizer, 'models/y_tokenizer.pkl')
+    joblib.dump(y_tokenizer, 'features/y_tokenizer.pkl')
     return y_tr, y_val, y_voc_size
 
 

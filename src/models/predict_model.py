@@ -13,8 +13,8 @@ import logging
 
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
-x_tokenizer = joblib.load('models/x_tokenizer.pkl')
-y_tokenizer = joblib.load('models/y_tokenizer.pkl')
+x_tokenizer = joblib.load('features/x_tokenizer.pkl')
+y_tokenizer = joblib.load('features/y_tokenizer.pkl')
 encoder = load_model('models/enc.h5')
 decoder = load_model('models/dec.h5', custom_objects={'AttentionLayer': AttentionLayer})
 reverse_target_word_index = y_tokenizer.index_word

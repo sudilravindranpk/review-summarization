@@ -2,11 +2,10 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 from keras import backend as K
 from tensorflow.keras.layers import Input, LSTM, Embedding, Dense, Concatenate, TimeDistributed, Bidirectional, Dropout
-from tensorflow.python.framework.ops import name_scope_v1
 
 from models.attention_layer import AttentionLayer
-from models.tokenize_data import tokenize_review, tokenize_comment
-from tensorflow.keras.models import Model, load_model
+from features.tokenize_data import tokenize_review, tokenize_comment
+from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import EarlyStopping
 from matplotlib import pyplot
 
