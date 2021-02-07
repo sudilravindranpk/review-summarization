@@ -78,6 +78,12 @@ target/
 # exclude data from source control by default
 /data/
 
+# exclude large saved models from models folder
+/src/models/*.h5
+
+# exclude large saved models from api project folder
+/api_project/*.h5
+
 # Mac OS-specific storage files
 .DS_Store
 

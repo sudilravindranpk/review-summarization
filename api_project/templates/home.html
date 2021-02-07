@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-section">
+<form action="" method="POST">
+   {{form.hidden_tag()}}
+   <fieldset class="form-group">
+      <dir class="form-group">
+         {{ form.review_text.label(class="form-control-label")}}
+         {{form.review_text(class="form-control form-control-lg" , cols="35", rows="8") }}
+      </dir>
+
+   </fieldset>
+   <div class="form-group">
+      {{form.submit(class="btn btn-primary float-right")}}
+   </div>
+</form>
+</div>
+
+{% if session['summary'] %}
+Thank You. Here is the summary for the review you gave:
+<ul>
+	<li>summary text: {{session['summary']}}</li>
+</ul>
+{% endif %}
+{% endblock content %}
+

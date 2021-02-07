@@ -1,52 +1,82 @@
-# local package
--e .
-
-# external requirements
-click
-Sphinx
-coverage
-awscli
-flake8
-python-dotenv>=0.5.1
 absl-py==0.11.0
+alembic==1.5.4
+apache-airflow==2.0.0
+apache-airflow-providers-amazon==1.0.0
+apache-airflow-providers-ftp==1.0.0
+apache-airflow-providers-http==1.0.0
+apache-airflow-providers-imap==1.0.0
+apache-airflow-providers-postgres==1.0.0
+apache-airflow-providers-sqlite==1.0.0
+apispec==3.3.2
+argcomplete==1.12.2
 argon2-cffi @ file:///C:/ci/argon2-cffi_1596828549974/work
 astunparse==1.6.3
 async-generator==1.10
 attrs @ file:///tmp/build/80754af9/attrs_1604765588209/work
+Babel==2.9.0
 backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 beautifulsoup4==4.9.3
 bleach @ file:///tmp/build/80754af9/bleach_1612211392645/work
+boto3==1.15.18
+botocore==1.18.18
+cached-property==1.5.2
 cachetools==4.2.1
+cattrs==1.2.0
 certifi==2020.12.5
 cffi @ file:///C:/ci/cffi_1606255207413/work
-chardet==4.0.0
+chardet==3.0.4
 click==7.1.2
+clickclick==20.10.2
 colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+colorlog==4.0.2
+commonmark==0.9.1
+connexion==2.7.0
+croniter==0.3.37
+cryptography==3.3.1
 cycler==0.10.0
 decorator @ file:///home/ktietz/src/ci/decorator_1611930055503/work
 defusedxml==0.6.0
 dill @ file:///tmp/build/80754af9/dill_1605066453875/work
+dnspython==2.1.0
+docutils==0.16
+email-validator==1.1.2
 entrypoints==0.3
 Flask==1.1.2
+Flask-AppBuilder==3.1.1
+Flask-Babel==1.0.0
+Flask-Caching==1.9.0
 Flask-Cors==3.0.10
+Flask-JWT-Extended==3.25.0
+Flask-Login==0.4.1
+Flask-OpenID==1.2.5
+Flask-SQLAlchemy==2.4.4
+flask-swagger==0.2.13
 Flask-WTF==0.14.3
 flatbuffers==1.12
+funcsigs==1.0.2
 gast==0.3.3
 google-auth==1.24.0
 google-auth-oauthlib==0.4.2
 google-pasta==0.2.0
+graphviz==0.16
 grpcio==1.32.0
+gunicorn==19.10.0
 h5py==2.10.0
 idna==2.10
-importlib-metadata==3.4.0
+importlib-metadata==1.7.0
+importlib-resources==1.5.0
+inflection==0.5.1
 ipykernel @ file:///C:/ci/ipykernel_1596208728219/work/dist/ipykernel-5.3.4-py3-none-any.whl
 ipython @ file:///D:/bld/ipython_1612220737193/work
 ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
 ipywidgets @ file:///tmp/build/80754af9/ipywidgets_1610481889018/work
+iso8601==0.1.13
 itsdangerous==1.1.0
 jedi @ file:///C:/ci/jedi_1611315820849/work
 Jinja2 @ file:///tmp/build/80754af9/jinja2_1612213139570/work
+jmespath==0.10.0
 joblib==1.0.0
+json-merge-patch==0.2
 jsonschema @ file:///tmp/build/80754af9/jsonschema_1602607155483/work
 jupyter==1.0.0
 jupyter-client @ file:///tmp/build/80754af9/jupyter_client_1601311786391/work
@@ -57,11 +87,20 @@ jupyterlab-widgets @ file:///tmp/build/80754af9/jupyterlab_widgets_1609884341231
 Keras==2.4.3
 Keras-Preprocessing==1.1.2
 kiwisolver==1.3.1
+lazy-object-proxy==1.4.3
+lockfile==0.12.2
+luigi==3.0.2
 lxml @ file:///C:/ci/lxml_1606516935960/work
+Mako==1.1.4
 Markdown==3.3.3
 MarkupSafe @ file:///C:/ci/markupsafe_1594405949945/work
+marshmallow==3.10.0
+marshmallow-enum==1.5.1
+marshmallow-oneofschema==2.1.0
+marshmallow-sqlalchemy==0.23.1
 matplotlib==3.2.2
 mistune @ file:///C:/ci/mistune_1594373272338/work
+natsort==7.1.1
 nbclient @ file:///tmp/build/80754af9/nbclient_1602783176460/work
 nbconvert @ file:///C:/ci/nbconvert_1601914921407/work
 nbformat @ file:///tmp/build/80754af9/nbformat_1610738111109/work
@@ -70,24 +109,37 @@ nltk==3.5
 notebook @ file:///C:/ci/notebook_1611348264852/work
 numpy==1.19.5
 oauthlib==3.1.0
+openapi-spec-validator==0.2.9
 opt-einsum==3.3.0
 packaging @ file:///tmp/build/80754af9/packaging_1611952188834/work
 pandas==1.2.1
 pandocfilters @ file:///C:/ci/pandocfilters_1605102427207/work
 parso @ file:///tmp/build/80754af9/parso_1607623074025/work
+pendulum==2.1.2
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+prison==0.1.3
 prometheus-client @ file:///tmp/build/80754af9/prometheus_client_1606344362066/work
 prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1602688806899/work
 protobuf==3.14.0
+psutil==5.8.0
+psycopg2-binary==2.8.6
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 Pygments @ file:///tmp/build/80754af9/pygments_1610565767015/work
+PyJWT==1.7.1
 pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
 pyreadline==2.1
 pyrsistent @ file:///C:/ci/pyrsistent_1600123688363/work
+python-daemon==2.2.4
 python-dateutil @ file:///home/ktietz/src/ci/python-dateutil_1611928101742/work
+python-dotenv==0.15.0
+python-editor==1.0.4
+python-nvd3==0.15.0
+python-slugify==4.0.1
+python3-openid==3.2.0
 pytz==2021.1
+pytzdata==2020.1
 pywin32==227
 pywinpty==0.5.7
 PyYAML==5.4.1
@@ -95,15 +147,24 @@ pyzmq==20.0.0
 qtconsole @ file:///tmp/build/80754af9/qtconsole_1600870028330/work
 QtPy==1.9.0
 regex==2020.11.13
-requests==2.25.1
+requests==2.23.0
 requests-oauthlib==1.3.0
+rich==9.2.0
 rsa==4.7
+s3transfer==0.3.4
 scikit-learn==0.24.1
 scipy==1.6.0
 Send2Trash @ file:///tmp/build/80754af9/send2trash_1607525499227/work
+setproctitle==1.2.2
 six @ file:///C:/ci/six_1605205426665/work
 sklearn==0.0
 soupsieve==2.1
+SQLAlchemy==1.3.23
+SQLAlchemy-JSONField==1.0.0
+SQLAlchemy-Utils==0.36.8
+swagger-ui-bundle==0.0.8
+tabulate==0.8.7
+tenacity==6.2.0
 tensorboard==2.4.1
 tensorboard-plugin-wit==1.8.0
 tensorflow==2.4.1
@@ -111,12 +172,17 @@ tensorflow-estimator==2.4.0
 termcolor==1.1.0
 terminado==0.9.2
 testpath @ file:///home/ktietz/src/ci/testpath_1611930608132/work
+text-unidecode==1.3
 threadpoolctl==2.1.0
+thrift==0.13.0
 tornado @ file:///C:/ci/tornado_1606935947090/work
 tqdm==4.56.0
 traitlets @ file:///home/ktietz/src/ci/traitlets_1611929699868/work
 typing-extensions==3.7.4.3
-urllib3==1.26.2
+tzlocal==1.5.1
+unicodecsv==0.14.1
+urllib3==1.25.11
+watchtower==0.7.3
 wcwidth @ file:///tmp/build/80754af9/wcwidth_1593447189090/work
 webencodings==0.5.1
 Werkzeug==1.0.1
@@ -125,4 +191,3 @@ wincertstore==0.2
 wrapt==1.12.1
 WTForms==2.3.3
 zipp @ file:///tmp/build/80754af9/zipp_1604001098328/work
-

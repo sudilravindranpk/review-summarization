@@ -1,22 +1,27 @@
+from flask import Flask, request, jsonify, render_template, session, url_for, redirect, make_response
 import nltk
 from nltk.corpus import stopwords
-from models.attention_layer import AttentionLayer
-from data.contractions import contraction_mapping
+from Forms.summaryForm import SummaryForm
+from attention import AttentionLayer
+from contractions import contraction_mapping
 from bs4 import BeautifulSoup
 import re
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.preprocessing.text import Tokenizer
 import joblib
-import logging
+from flask_cors import CORS, cross_origin
+
+app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+app.config['SECRET_KEY'] = '6ba1231289e077a76e662da3cabfc80e'
 
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
-x_tokenizer = joblib.load('models/x_tokenizer.pkl')
-y_tokenizer = joblib.load('models/y_tokenizer.pkl')
-encoder = load_model('models/enc.h5')
-decoder = load_model('models/dec.h5', custom_objects={'AttentionLayer': AttentionLayer})
+x_tokenizer = joblib.load('x_tokenizer.pkl')
+y_tokenizer = joblib.load('y_tokenizer.pkl')
+encoder = load_model('enc.h5')
+decoder = load_model('dec.h5', custom_objects={'AttentionLayer': AttentionLayer})
 reverse_target_word_index = y_tokenizer.index_word
 reverse_source_word_index = x_tokenizer.index_word
 target_word_index = y_tokenizer.word_index
@@ -86,12 +91,42 @@ def decode_sequence(input_seq):
     return decoded_sentence
 
 
-def predict(review_text):
+@app.route("/api", methods=["POST", "GET", "OPTIONS"])
+@app.route("/summarize", methods=["POST", "GET", "OPTIONS"])
+@cross_origin()
+def summarize():
+    review_text = request.args.get('review')
+    return jsonify(execute(review_text))
+
+
+def execute(review_text):
     review_text = review_text if review_text is not None else '"I was always a white truffle fan'
     cleaned_text = text_cleaner(review_text)
     tokenized_padded_text = tokenize_pad_sequence([cleaned_text])
     return decode_sequence(tokenized_padded_text.reshape(1, max_len_text))
 
 
+@app.after_request
+def after_request(response):
+    app.logger.error(response)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+
+
+@app.route("/", methods=["POST", "GET"])
+@app.route("/home", methods=["POST", "GET"])
+def home():
+    form = SummaryForm()
+    if form.validate_on_submit():
+        app.logger.error(form.review_text.data)
+        session['summary'] = execute(form.review_text.data)
+        app.logger.error(execute(form.review_text.data))
+        return render_template('home.html', form=form)
+    session['summary'] = ''
+    return render_template('home.html', form=form)
+
+
 if __name__ == '__main__':
-    predict()
+    app.run()
